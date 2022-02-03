@@ -4,8 +4,8 @@ public class EmployeeServiceImpl implements EmployeeService{
     private EmployeeRepository EmployeeRepository;
     @Transactional
     @Override
-    public Employee saveEmployee(Employee Employee) {
-        return EmployeeRepository.save(Employee);
+    public Employee saveEmployee(Employee employee) {
+        return EmployeeRepository.save(employee);
     }
     @Transactional
     @Override
@@ -24,7 +24,7 @@ public class EmployeeServiceImpl implements EmployeeService{
         if (t == null) {
             throw new NotFoundException("Not exist");
         }
-        BeanUtils.copyProperties(Employee,t);
+        BeanUtils.copyProperties(employee,t);
         return EmployeeRepository.save(t);
     }
     @Transactional
